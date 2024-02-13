@@ -73,7 +73,7 @@ resource "aws_s3_bucket_website_configuration" "website" {
   }
 
   depends_on = [
-    aws_s3_bucket_acl.example.id,
+    aws_s3_bucket_acl.example,
     aws_s3_object.index,
     aws_s3_object.error,
     aws_s3_object.style,
