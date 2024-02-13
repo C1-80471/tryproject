@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "example_bucket" {
     enabled = true
   }
 
-  acl = var.acl
+  acl = "private"  # Set bucket ACL to private
 }
 
 resource "aws_s3_bucket_ownership_controls" "example" {
