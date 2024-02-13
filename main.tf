@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "up-south-1"  # Change this to your AWS region
+  region = "ap-south-1"  # Change this to your AWS region
 }
 
 variable "bucket_name" {
