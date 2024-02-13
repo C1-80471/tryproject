@@ -29,7 +29,7 @@ resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "index.html"
   source       = "index.html"
-  acl          = "private"
+  acl          = "public-read"
   content_type = "text/html"
 }
 
@@ -37,7 +37,7 @@ resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "error.html"
   source       = "error.html"
-  acl          = "private"
+  acl          = "public-read"
   content_type = "text/html"
 }
 
@@ -45,7 +45,7 @@ resource "aws_s3_object" "style" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "style.css"
   source       = "style.css"
-  acl          = "private"
+  acl          = "public-read"
   content_type = "text/css"
 }
 
@@ -53,7 +53,7 @@ resource "aws_s3_object" "script" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "script.js"
   source       = "script.js"
-  acl          = "private"
+  acl          = "public-read"
   content_type = "text/javascript"
 }
 
