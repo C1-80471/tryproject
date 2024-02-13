@@ -25,16 +25,11 @@ resource "aws_s3_bucket_public_access_block" "example" {
   restrict_public_buckets = false
 }
 
-resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.example_bucket.id
-  acl    = var.acl
-}
-
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "index.html"
   source       = "index.html"
-  acl          = var.acl
+  acl          = "private"
   content_type = "text/html"
 }
 
@@ -42,7 +37,7 @@ resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "error.html"
   source       = "error.html"
-  acl          = var.acl
+  acl          = "private"
   content_type = "text/html"
 }
 
@@ -50,7 +45,7 @@ resource "aws_s3_object" "style" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "style.css"
   source       = "style.css"
-  acl          = var.acl
+  acl          = "private"
   content_type = "text/css"
 }
 
@@ -58,7 +53,7 @@ resource "aws_s3_object" "script" {
   bucket       = aws_s3_bucket.example_bucket.id
   key          = "script.js"
   source       = "script.js"
-  acl          = var.acl
+  acl          = "private"
   content_type = "text/javascript"
 }
 
@@ -73,7 +68,6 @@ resource "aws_s3_bucket_website_configuration" "website" {
   }
 
   depends_on = [
-    aws_s3_bucket_acl.example,
     aws_s3_object.index,
     aws_s3_object.error,
     aws_s3_object.style,
